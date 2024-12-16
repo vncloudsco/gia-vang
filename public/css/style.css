@@ -1,0 +1,379 @@
+:root {
+    --primary-color: #2563eb;
+    --secondary-color: #f8fafc;
+    --text-color: #333;
+    --card-shadow: 0 4px 6px -1px rgb(0 0 0 / 0.1), 0 2px 4px -2px rgb(0 0 0 / 0.1);
+    --card-border-radius: 1rem;
+    --gradient-start: #1a237e;
+    --gradient-end: #1565c0;
+}
+
+body {
+    background-color: var(--secondary-color);
+    color: var(--text-color);
+    font-family: 'Inter', sans-serif;
+}
+
+.card {
+    border: none;
+    border-radius: var(--card-border-radius);
+    box-shadow: var(--card-shadow);
+    transition: transform 0.3s ease;
+}
+
+.card:hover {
+    transform: translateY(-3px);
+}
+
+.table th {
+    font-weight: 600;
+    color: #555;
+}
+
+.price-up {
+    color: #28a745;
+}
+
+.price-down {
+    color: #dc3545;
+}
+
+.last-update {
+    font-size: 0.9rem;
+    color: #666;
+    background: rgba(255, 255, 255, 0.1);
+    padding: 0.5rem 1rem;
+    border-radius: 2rem;
+    display: inline-block;
+}
+
+/* Styles cho phần tỷ giá */
+.card .dollar-rate {
+    font-size: 1.5rem;
+    font-weight: 600;
+}
+
+.card .rate-buy {
+    color: #28a745;
+}
+
+.card .rate-sell {
+    color: #dc3545;
+}
+
+.card .rate-time {
+    font-size: 0.8rem;
+    color: #6c757d;
+}
+
+/* USD/VND card styles */
+.card h4 small {
+    font-size: 0.9rem;
+    opacity: 0.7;
+}
+
+.badge {
+    font-weight: normal;
+    font-size: 0.85rem;
+}
+
+/* Currency converter styles */
+.input-group {
+    box-shadow: 0 2px 4px rgba(0,0,0,0.05);
+}
+
+.input-group input {
+    border-right: none;
+}
+
+.input-group select {
+    border-left: none;
+    width: auto;
+}
+
+#convertBtn {
+    transition: all 0.3s ease;
+}
+
+#convertBtn:hover {
+    transform: translateY(-2px);
+    box-shadow: 0 2px 4px rgba(0,0,0,0.1);
+}
+
+#result {
+    background-color: #f8f9fa;
+    font-weight: 600;
+}
+
+/* Hero Section */
+.hero-section {
+    background: linear-gradient(135deg, var(--gradient-start) 0%, var(--gradient-end) 100%);
+    color: white;
+    padding: 5rem 0;
+    margin-bottom: 2rem;
+    position: relative;
+    overflow: hidden;
+}
+
+.hero-section::before {
+    content: '';
+    position: absolute;
+    top: 0;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    background: url('/images/pattern.png') repeat;
+    opacity: 0.1;
+}
+
+.hero-section .display-4 {
+    font-size: 3.5rem;
+    line-height: 1.2;
+    margin-bottom: 1.5rem;
+}
+
+.hero-section .lead {
+    font-size: 1.25rem;
+    opacity: 0.9;
+}
+
+.quick-stats {
+    background: rgba(255, 255, 255, 0.15);
+    border-radius: var(--card-border-radius);
+    padding: 1.5rem;
+    backdrop-filter: blur(10px);
+    border: 1px solid rgba(255, 255, 255, 0.2);
+}
+
+.stat-card {
+    background: rgba(255, 255, 255, 0.1);
+    border-radius: 0.75rem;
+    padding: 1rem;
+    text-align: center;
+    border: 1px solid rgba(255, 255, 255, 0.1);
+    transition: all 0.3s ease;
+}
+
+.stat-card:hover {
+    transform: translateY(-5px);
+    background: rgba(255, 255, 255, 0.2);
+}
+
+.stat-title {
+    font-size: 0.875rem;
+    text-transform: uppercase;
+    letter-spacing: 0.05em;
+}
+
+.stat-value {
+    font-size: 1.75rem;
+    font-weight: 700;
+    margin: 0.5rem 0;
+    text-shadow: 0 2px 4px rgba(0,0,0,0.1);
+}
+
+.stat-label {
+    font-size: 0.75rem;
+    opacity: 0.8;
+}
+
+/* Cards */
+.card {
+    border: none;
+    border-radius: var(--card-border-radius);
+    box-shadow: var(--card-shadow);
+    transition: transform 0.3s ease;
+}
+
+.card:hover {
+    transform: translateY(-3px);
+}
+
+.card-header {
+    border-radius: var(--card-border-radius) var(--card-border-radius) 0 0 !important;
+    padding: 1rem 1.5rem;
+}
+
+/* Price Table */
+.price-table-card {
+    overflow: hidden;
+    background: white;
+}
+
+.price-table {
+    margin: 0;
+}
+
+.price-table th {
+    background: #f8fafc;
+    font-weight: 600;
+    padding: 1rem;
+    border-bottom: 2px solid #edf2f7;
+}
+
+.price-row {
+    transition: background-color 0.2s ease;
+}
+
+.price-row:hover {
+    background-color: rgba(59, 130, 246, 0.05);
+}
+
+/* Rate Card */
+.rate-card {
+    background: white;
+}
+
+.rate-card .rate-value {
+    font-size: 2rem;
+    margin: 0.5rem 0;
+    font-weight: 700;
+    letter-spacing: -0.5px;
+}
+
+.source-badge {
+    font-weight: 500;
+    padding: 0.5rem 1rem;
+    border-radius: 2rem;
+}
+
+.update-time {
+    margin-top: 0.5rem;
+}
+
+/* Converter Card */
+.converter-card {
+    background: white;
+}
+
+.converter-card .input-group {
+    border-radius: 0.5rem;
+    overflow: hidden;
+}
+
+.convert-btn {
+    padding: 0.75rem;
+    font-weight: 600;
+    border-radius: 0.5rem;
+    background: #f59e0b;
+    border: none;
+    color: white;
+}
+
+.convert-btn:hover {
+    background: #d97706;
+    color: white;
+}
+
+/* Responsive */
+@media (max-width: 768px) {
+    .hero-section {
+        padding: 2rem 0;
+    }
+    
+    .quick-stats {
+        margin-top: 2rem;
+    }
+} 
+
+/* Gold Price Table Styles */
+.gold-header {
+    background: linear-gradient(135deg, #bf953f 0%, #fcf6ba 100%);
+    border: none;
+    padding: 1.5rem;
+}
+
+.header-icon {
+    width: 40px;
+    height: 40px;
+    background: rgba(0, 0, 0, 0.1);
+    border-radius: 12px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    margin-right: 1rem;
+    color: #000;
+}
+
+.text-gold {
+    color: rgba(0, 0, 0, 0.6);
+}
+
+.refresh-button {
+    width: 36px;
+    height: 36px;
+    background: rgba(0, 0, 0, 0.1);
+    border-radius: 50%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    cursor: pointer;
+    transition: all 0.3s ease;
+}
+
+.refresh-button:hover {
+    background: rgba(0, 0, 0, 0.2);
+    transform: rotate(180deg);
+}
+
+.price-table th {
+    background: #fff;
+    font-weight: 600;
+    color: #64748b;
+    text-transform: uppercase;
+    font-size: 0.85rem;
+    letter-spacing: 0.5px;
+    border-bottom: 2px solid #f1f5f9;
+}
+
+.price-row {
+    border-bottom: 1px solid #f1f5f9;
+}
+
+.gold-type {
+    font-weight: 500;
+    color: #1e293b;
+}
+
+.gold-icon {
+    color: #bf953f;
+    font-size: 0.5rem;
+}
+
+.price-value {
+    font-family: 'Inter', monospace;
+    font-weight: 600;
+    padding: 0.5rem 1rem;
+    border-radius: 6px;
+    font-size: 1.1rem;
+}
+
+.buy-price {
+    color: #059669;
+    background: #ecfdf5;
+}
+
+.sell-price {
+    color: #dc2626;
+    background: #fef2f2;
+}
+
+.diff-badge {
+    background: #f1f5f9;
+    color: #475569;
+    padding: 0.5rem 1rem;
+    border-radius: 6px;
+    font-weight: 500;
+    font-size: 0.9rem;
+}
+
+/* Animation for price changes */
+@keyframes priceChange {
+    0% { transform: scale(1); }
+    50% { transform: scale(1.05); }
+    100% { transform: scale(1); }
+}
+
+.price-change {
+    animation: priceChange 0.3s ease;
+} 

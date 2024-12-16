@@ -1,0 +1,36 @@
+làm website theo dõi giá vàng từ API, hãy cho tôi ý tưởng
+: http://giavang.doji.vn/api/giavang/?api_key=258fbd2a72ce8481089d88c678e9fe4f
+<GoldList>
+<DGPlist>
+<DateTime>07:00 01/01/1970</DateTime>
+<Row Name="DOJI HN lẻ" Key="dojihanoile" Sell="85,100" Buy="82,600"/>
+<Row Name="DOJI HN buôn" Key="dojihanoile" Sell="85,100" Buy="82,600"/>
+<Row Name="DOJI HCM lẻ" Key="dojihanoile" Sell="8,510" Buy="8,260"/>
+<Row Name="DOJI HCM buôn" Key="dojihanoile" Sell="8,510" Buy="8,260"/>
+</DGPlist>
+<IGPList>
+<DateTime>13:02 16/12/2024</DateTime>
+<Row Name="USD/VND" Key="usdvnd" Sell="22,611" Buy="22,517"/>
+</IGPList>
+<IGPChart>
+<Row Name="Biểu đồ quốc tế" Key="Kitco" Url="http://www.kitco.com/images/live/gold.gif?token=541581294"/>
+</IGPChart>
+<JewelryList>
+<DateTime>07:00 01/01/1970</DateTime>
+<Row Name="DOJI HN lẻ" Key="dojihanoile" Sell="85,100" Buy="82,600"/>
+<Row Name="DOJI HCM lẻ" Key="dojihanoile" Sell="85,100" Buy="82,600"/>
+<Row Name="DOJI HCM buôn" Key="dojihanoile" Sell="85,100" Buy="82,600"/>
+<Row Name="Vàng 24k (nghìn/chỉ)" Key="vang24k" Sell="8,450" Buy="8,330"/>
+<Row Name="Giá Nguyên Liệu 18K" Key="vang18k" Sell="-" Buy="6,096"/>
+<Row Name="Giá Nguyên Liệu 16K" Key="vang16k" Sell="-" Buy="5,332"/>
+<Row Name="Giá Nguyên Liệu 15K" Key="vang15k" Sell="-" Buy="4,850"/>
+<Row Name="Giá Nguyên Liệu 14K" Key="vang14k" Sell="-" Buy="4,649"/>
+<Row Name="Giá Nguyên Liệu 10K" Key="vang10k" Sell="-" Buy="3,405"/>
+<Row Name="Nhẫn Tròn 9999 Hưng Thịnh Vượng" Key="nhanhung1chi" Sell="8,460" Buy="8,360"/>
+<Row Name="Âu Vàng Phúc Long" Key="auvangphuclong" Sell="85,100" Buy="82,600"/>
+</JewelryList>
+<GPChart>
+<Row Name="Biểu đồ giá vàng" Key="DojiChart" Url="http://giavang.doji.vn/bieudo/view?token=541581294"/>
+</GPChart>
+<Source>DOJI GOLD : http://giavang.doji.vn</Source>
+</GoldList>
