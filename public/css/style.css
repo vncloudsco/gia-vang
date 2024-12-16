@@ -702,3 +702,34 @@ body {
     margin-top: -2rem;
     border-radius: 2rem 2rem 0 0;
 } 
+
+.price-table-card {
+    overflow: hidden;
+    background: white;
+}
+
+.github-link {
+    padding: 1rem;
+    border-top: 1px solid #f1f5f9;
+    background: #f8fafc;
+}
+
+.github-link a {
+    color: #64748b;
+    text-decoration: none;
+    font-size: 0.9rem;
+    font-weight: 500;
+    padding: 0.5rem 1rem;
+    border-radius: 0.5rem;
+    transition: all 0.3s ease;
+}
+
+.github-link a:hover {
+    background: #f1f5f9;
+    color: #1e293b;
+}
+
+.github-link i {
+    font-size: 1.25rem;
+}
+  
