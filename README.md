@@ -1,6 +1,6 @@
 # GoldPrice.VN - Theo dõi giá vàng & tỷ giá
 
-![GoldPrice.VN Screenshot](public/images/screenshot.png)
+![GoldPrice.VN Screenshot](https://i.ibb.co/W3FVM9t/gitture.png)
 
 Ứng dụng web theo dõi giá vàng DOJI và tỷ giá USD/VND Vietcombank theo thời gian thực.
 
