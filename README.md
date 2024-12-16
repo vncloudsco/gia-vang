@@ -42,6 +42,6 @@
 
 ## Liên hệ
 
-Kha Nguyen - [@khadnhdev](https://github.com/khadnhdev) - [LinkedIn](https://www.linkedin.com/in/khadnh/)
+Kha Dang - [@khadnhdev](https://github.com/khadnhdev) - [LinkedIn](https://www.linkedin.com/in/khadnh/)
 
 Project Link: [https://github.com/khadnhdev/gia-vang](https://github.com/khadnhdev/gia-vang)
