@@ -1,22 +1,36 @@
-<nav class="navbar navbar-expand-lg">
+<nav class="navbar navbar-expand-lg fixed-top">
     <div class="container">
         <a class="navbar-brand d-flex align-items-center" href="/">
-            <i class="fas fa-coins text-warning me-2"></i>
-            <span class="brand-text">GoldPrice<span class="text-warning">.VN</span></span>
+            <div class="brand-logo">
+                <i class="fas fa-coins"></i>
+            </div>
+            <div class="brand-text">
+                <span class="brand-name">GoldPrice</span>
+                <span class="brand-domain">.VN</span>
+                <small class="brand-slogan">Theo dõi giá vàng & tỷ giá</small>
+            </div>
         </a>
-        <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNav">
+        <button class="navbar-toggler border-0" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNav">
             <span class="navbar-toggler-icon"></span>
         </button>
         <div class="collapse navbar-collapse" id="navbarNav">
             <ul class="navbar-nav ms-auto">
                 <li class="nav-item">
-                    <a class="nav-link" href="https://doji.vn" target="_blank">
-                        <i class="fas fa-external-link-alt me-1"></i>DOJI
+                    <div class="nav-time">
+                        <i class="far fa-clock"></i>
+                        <span class="current-time" id="currentTime"></span>
+                    </div>
+                </li>
+                <li class="nav-item">
+                    <a class="nav-link nav-link-doji" href="https://doji.vn" target="_blank">
+                        <i class="fas fa-coins me-1"></i>
+                        <span>DOJI</span>
                     </a>
                 </li>
                 <li class="nav-item">
-                    <a class="nav-link" href="https://www.vietcombank.com.vn" target="_blank">
-                        <i class="fas fa-external-link-alt me-1"></i>Vietcombank
+                    <a class="nav-link nav-link-vcb" href="https://www.vietcombank.com.vn" target="_blank">
+                        <i class="fas fa-university me-1"></i>
+                        <span>Vietcombank</span>
                     </a>
                 </li>
             </ul>

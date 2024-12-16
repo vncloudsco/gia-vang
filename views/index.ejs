@@ -13,7 +13,7 @@
     <%- include('partials/navbar') %>
     
     <!-- Hero Section -->
-    <div class="hero-section py-4">
+    <div class="hero-section">
         <div class="container">
             <div class="row align-items-center">
                 <div class="col-md-6">
@@ -64,162 +64,184 @@
         </div>
     </div>
 
-    <div class="container mt-4">
-        <div class="row">
-            <!-- Bảng giá vàng -->
-            <div class="col-lg-8">
-                <div class="card price-table-card">
-                    <div class="card-header gold-header">
-                        <div class="d-flex align-items-center justify-content-between">
-                            <div class="d-flex align-items-center">
-                                <div class="header-icon">
-                                    <i class="fas fa-coins"></i>
+    <section class="main-content">
+        <div class="container">
+            <div class="row">
+                <!-- Tỷ giá và Chuyển đổi -->
+                <div class="col-lg-4">
+                    <!-- Tỷ giá USD/VND -->
+                    <div class="card forex-card mb-4">
+                        <div class="card-header">
+                            <h5 class="mb-0">
+                                <div class="d-flex align-items-center">
+                                    <div class="forex-icon">
+                                        <span class="flag-icon">🇺🇸</span>
+                                    </div>
+                                    <div>
+                                        <span>USD/VND Exchange</span>
+                                        <div class="d-flex align-items-center">
+                                            <span class="flag-icon me-1">🇻🇳</span>
+                                            <small class="text-muted">Vietcombank</small>
+                                        </div>
+                                    </div>
                                 </div>
-                                <div>
-                                    <h5 class="mb-0">Bảng Giá Vàng DOJI</h5>
-                                    <small class="text-gold">Cập nhật theo thời gian thực</small>
-                                </div>
-                            </div>
-                            <div class="refresh-button" onclick="location.reload()">
-                                <i class="fas fa-sync-alt"></i>
-                            </div>
+                            </h5>
                         </div>
-                    </div>
-                    <div class="card-body p-0">
-                        <table class="table table-hover price-table mb-0">
-                            <thead>
-                                <tr>
-                                    <th class="ps-4">Loại vàng</th>
-                                    <th class="text-center">Giá mua</th>
-                                    <th class="text-center">Giá bán</th>
-                                    <th class="text-center pe-4">Chênh lệch</th>
-                                </tr>
-                            </thead>
-                            <tbody id="goldPriceTable">
-                                <% if (goldData && goldData.GoldList && goldData.GoldList.DGPlist) { %>
-                                    <% goldData.GoldList.DGPlist.Row.forEach(item => { %>
-                                    <tr class="price-row">
-                                        <td class="ps-4 gold-type">
-                                            <div class="d-flex align-items-center">
-                                                <div class="gold-icon me-2">
-                                                    <i class="fas fa-circle"></i>
-                                                </div>
-                                                <%= item.Name %>
-                                            </div>
-                                        </td>
-                                        <td class="text-center">
-                                            <span class="price-value buy-price">
-                                                <%= item.Buy %>
-                                            </span>
-                                        </td>
-                                        <td class="text-center">
-                                            <span class="price-value sell-price">
-                                                <%= item.Sell %>
-                                            </span>
-                                        </td>
-                                        <td class="text-center pe-4">
-                                            <% const diff = parseFloat(item.Sell.replace(/,/g, '')) - parseFloat(item.Buy.replace(/,/g, '')); %>
-                                            <span class="diff-badge">
-                                                <%= diff.toLocaleString() %>
-                                            </span>
-                                        </td>
-                                    </tr>
-                                    <% }); %>
-                                <% } else { %>
-                                    <tr>
-                                        <td colspan="4" class="text-center py-4">
-                                            <div class="spinner-border text-primary" role="status">
-                                                <span class="visually-hidden">Đang tải...</span>
-                                            </div>
-                                        </td>
-                                    </tr>
-                                <% } %>
-                            </tbody>
-                        </table>
-                    </div>
-                </div>
-            </div>
-
-            <!-- Thông tin phụ -->
-            <div class="col-lg-4">
-                <!-- Tỷ giá USD/VND -->
-                <div class="card rate-card mb-4">
-                    <div class="card-header bg-info text-white">
-                        <h5 class="mb-0">
-                            <i class="fas fa-dollar-sign me-2"></i>Tỷ giá USD/VND
-                        </h5>
-                    </div>
-                    <div class="card-body">
-                        <% if (goldData && goldData.GoldList && goldData.GoldList.IGPList) { %>
-                            <div class="row text-center">
-                                <div class="col-6">
-                                    <h6 class="text-muted">Mua vào</h6>
-                                    <h4 class="text-success rate-value">
+                        <div class="card-body">
+                            <div class="forex-rates">
+                                <div class="forex-rate buy">
+                                    <div class="rate-label">
+                                        <i class="fas fa-arrow-down text-success me-1"></i>
+                                        Buy Rate
+                                    </div>
+                                    <div class="rate-value">
                                         <span class="exchange-rate-buy"><%= goldData.GoldList.IGPList.Row.Buy %></span>
-                                        <small>VND</small>
-                                    </h4>
+                                        <small class="currency">₫</small>
+                                    </div>
+                                    <div class="rate-subtitle">1 USD = <%= goldData.GoldList.IGPList.Row.Buy %> VND</div>
                                 </div>
-                                <div class="col-6">
-                                    <h6 class="text-muted">Bán ra</h6>
-                                    <h4 class="text-danger rate-value">
+                                <div class="forex-rate sell">
+                                    <div class="rate-label">
+                                        <i class="fas fa-arrow-up text-danger me-1"></i>
+                                        Sell Rate
+                                    </div>
+                                    <div class="rate-value">
                                         <span class="exchange-rate-sell"><%= goldData.GoldList.IGPList.Row.Sell %></span>
-                                        <small>VND</small>
-                                    </h4>
+                                        <small class="currency">₫</small>
+                                    </div>
+                                    <div class="rate-subtitle">1 USD = <%= goldData.GoldList.IGPList.Row.Sell %> VND</div>
                                 </div>
                             </div>
-                            <div class="text-center mt-3">
-                                <div class="badge bg-light text-dark source-badge">
-                                    <%= goldData.GoldList.IGPList.Row.Name %>
+                        </div>
+                    </div>
+
+                    <!-- Currency Converter -->
+                    <div class="card currency-converter mb-4">
+                        <div class="card-header">
+                            <h5 class="mb-0">
+                                <div class="d-flex align-items-center">
+                                    <div class="converter-icon">
+                                        <i class="fas fa-exchange-alt"></i>
+                                    </div>
+                                    <div>
+                                        <span>Quick Convert</span>
+                                        <div class="d-flex align-items-center currency-flags">
+                                            <span class="flag-icon me-1">🇺🇸</span>
+                                            <i class="fas fa-exchange-alt mx-1"></i>
+                                            <span class="flag-icon">🇻🇳</span>
+                                        </div>
+                                    </div>
                                 </div>
-                                <div class="update-time">
-                                    <small class="text-muted">
-                                        <i class="fas fa-history me-1"></i>
-                                        <%= goldData.GoldList.IGPList.DateTime %>
-                                    </small>
+                            </h5>
+                        </div>
+                        <div class="card-body">
+                            <div class="converter-form">
+                                <div class="converter-input mb-4">
+                                    <label class="converter-label">Amount</label>
+                                    <div class="input-group">
+                                        <span class="input-group-text currency-symbol">$</span>
+                                        <input type="number" class="form-control" id="amount" placeholder="0.00">
+                                        <select class="form-select" id="fromCurrency">
+                                            <option value="USD">USD 🇺🇸</option>
+                                            <option value="VND">VND 🇻🇳</option>
+                                        </select>
+                                    </div>
                                 </div>
+                                <div class="converter-output mb-4">
+                                    <label class="converter-label">Converted Amount</label>
+                                    <div class="input-group">
+                                        <span class="input-group-text currency-symbol">₫</span>
+                                        <input type="text" class="form-control" id="result" readonly>
+                                        <select class="form-select" id="toCurrency">
+                                            <option value="VND">VND 🇻🇳</option>
+                                            <option value="USD">USD 🇺🇸</option>
+                                        </select>
+                                    </div>
+                                </div>
+                                <button class="btn convert-btn w-100" id="convertBtn">
+                                    <i class="fas fa-sync-alt me-2"></i>Convert Now
+                                </button>
                             </div>
-                        <% } %>
+                        </div>
                     </div>
                 </div>
 
-                <!-- Công cụ đổi tiền tệ -->
-                <div class="card converter-card mb-4">
-                    <div class="card-header bg-warning text-dark">
-                        <h5 class="mb-0">
-                            <i class="fas fa-exchange-alt me-2"></i>Đổi tiền tệ
-                        </h5>
-                    </div>
-                    <div class="card-body">
-                        <div class="mb-3">
-                            <label class="form-label">Từ:</label>
-                            <div class="input-group">
-                                <input type="number" class="form-control" id="amount" placeholder="Nhập số tiền">
-                                <select class="form-select" id="fromCurrency">
-                                    <option value="USD">USD</option>
-                                    <option value="VND">VND</option>
-                                </select>
+                <!-- Bảng giá vàng -->
+                <div class="col-lg-8">
+                    <div class="card price-table-card">
+                        <div class="card-header gold-header">
+                            <div class="d-flex align-items-center justify-content-between">
+                                <div class="d-flex align-items-center">
+                                    <div class="header-icon">
+                                        <i class="fas fa-coins"></i>
+                                    </div>
+                                    <div>
+                                        <h5 class="mb-0">Bảng Giá Vàng DOJI</h5>
+                                        <small class="text-gold">Cập nhật theo thời gian thực</small>
+                                    </div>
+                                </div>
+                                <div class="refresh-button" onclick="location.reload()">
+                                    <i class="fas fa-sync-alt"></i>
+                                </div>
                             </div>
                         </div>
-                        <div class="mb-3">
-                            <label class="form-label">Sang:</label>
-                            <div class="input-group">
-                                <input type="text" class="form-control" id="result" readonly>
-                                <select class="form-select" id="toCurrency">
-                                    <option value="VND">VND</option>
-                                    <option value="USD">USD</option>
-                                </select>
-                            </div>
-                        </div>
-                        <div class="d-grid">
-                            <button class="btn btn-warning convert-btn" id="convertBtn">
-                                <i class="fas fa-sync-alt me-2"></i>Đổi tiền
-                            </button>
+                        <div class="card-body p-0">
+                            <table class="table table-hover price-table mb-0">
+                                <thead>
+                                    <tr>
+                                        <th class="ps-4">Loại vàng</th>
+                                        <th class="text-center">Giá mua</th>
+                                        <th class="text-center">Giá bán</th>
+                                        <th class="text-center pe-4">Chênh lệch</th>
+                                    </tr>
+                                </thead>
+                                <tbody id="goldPriceTable">
+                                    <% if (goldData && goldData.GoldList && goldData.GoldList.DGPlist) { %>
+                                        <% goldData.GoldList.DGPlist.Row.forEach(item => { %>
+                                        <tr class="price-row">
+                                            <td class="ps-4 gold-type">
+                                                <div class="d-flex align-items-center">
+                                                    <div class="gold-icon me-2">
+                                                        <i class="fas fa-circle"></i>
+                                                    </div>
+                                                    <%= item.Name %>
+                                                </div>
+                                            </td>
+                                            <td class="text-center">
+                                                <span class="price-value buy-price">
+                                                    <%= item.Buy %>
+                                                </span>
+                                            </td>
+                                            <td class="text-center">
+                                                <span class="price-value sell-price">
+                                                    <%= item.Sell %>
+                                                </span>
+                                            </td>
+                                            <td class="text-center pe-4">
+                                                <% const diff = parseFloat(item.Sell.replace(/,/g, '')) - parseFloat(item.Buy.replace(/,/g, '')); %>
+                                                <span class="diff-badge">
+                                                    <%= diff.toLocaleString() %>
+                                                </span>
+                                            </td>
+                                        </tr>
+                                        <% }); %>
+                                    <% } else { %>
+                                        <tr>
+                                            <td colspan="4" class="text-center py-4">
+                                                <div class="spinner-border text-primary" role="status">
+                                                    <span class="visually-hidden">Đang tải...</span>
+                                                </div>
+                                            </td>
+                                        </tr>
+                                    <% } %>
+                                </tbody>
+                            </table>
                         </div>
                     </div>
                 </div>
             </div>
         </div>
-    </div>
+    </section>
 
     <%- include('partials/footer') %>
     
