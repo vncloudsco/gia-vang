@@ -1,4 +1,4 @@
-# GoldPrice.VN - Theo dõi giá vàng & tỷ giá
+# GoldPrice - Theo dõi giá vàng & tỷ giá
 
 ![GoldPrice.VN Screenshot](https://i.ibb.co/W3FVM9t/gitture.png)
 
