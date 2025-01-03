@@ -53,9 +53,9 @@
                             <div class="stat-card">
                                 <div class="stat-title">USD</div>
                                 <div class="stat-value">
-                                    <%= goldData.GoldList.IGPList.Row.Buy %>
+                                    <span class="exchange-rate-sell"><%= vcbRate.sell.toLocaleString() %></span>
                                 </div>
-                                <div class="stat-label">Tỷ giá mua</div>
+                                <div class="stat-label">Tỷ giá bán</div>
                             </div>
                         </div>
                     </div>
@@ -72,7 +72,7 @@
                     <!-- Tỷ giá USD/VND -->
                     <div class="card forex-card mb-4">
                         <div class="card-header">
-                            <h5 class="mb-0">
+                            <div class="d-flex align-items-center justify-content-between">
                                 <div class="d-flex align-items-center">
                                     <div class="forex-icon">
                                         <span class="flag-icon">🇺🇸</span>
@@ -85,7 +85,10 @@
                                         </div>
                                     </div>
                                 </div>
-                            </h5>
+                                <div class="refresh-button" id="refresh-rate">
+                                    <i class="fas fa-sync-alt"></i>
+                                </div>
+                            </div>
                         </div>
                         <div class="card-body">
                             <div class="forex-rates">
@@ -95,10 +98,10 @@
                                         Buy Rate
                                     </div>
                                     <div class="rate-value">
-                                        <span class="exchange-rate-buy"><%= goldData.GoldList.IGPList.Row.Buy %></span>
+                                        <span class="exchange-rate-buy"><%= vcbRate.buy.toLocaleString() %></span>
                                         <small class="currency">₫</small>
                                     </div>
-                                    <div class="rate-subtitle">1 USD = <%= goldData.GoldList.IGPList.Row.Buy %> VND</div>
+                                    <div class="rate-subtitle">1 USD = <%= vcbRate.buy.toLocaleString() %> VND</div>
                                 </div>
                                 <div class="forex-rate sell">
                                     <div class="rate-label">
@@ -106,10 +109,10 @@
                                         Sell Rate
                                     </div>
                                     <div class="rate-value">
-                                        <span class="exchange-rate-sell"><%= goldData.GoldList.IGPList.Row.Sell %></span>
+                                        <span class="exchange-rate-sell"><%= vcbRate.sell.toLocaleString() %></span>
                                         <small class="currency">₫</small>
                                     </div>
-                                    <div class="rate-subtitle">1 USD = <%= goldData.GoldList.IGPList.Row.Sell %> VND</div>
+                                    <div class="rate-subtitle">1 USD = <%= vcbRate.sell.toLocaleString() %> VND</div>
                                 </div>
                             </div>
                         </div>

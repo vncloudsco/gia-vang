@@ -732,4 +732,20 @@ body {
 .github-link i {
     font-size: 1.25rem;
 }
+
+.exchange-rate-section {
+    margin: 20px 0;
+    padding: 15px;
+    border: 1px solid #ddd;
+    border-radius: 5px;
+}
+
+#refresh-rate {
+    margin-top: 10px;
+    padding: 8px 15px;
+}
+
+#exchange-rates p {
+    margin: 5px 0;
+}
   

@@ -27,34 +27,51 @@ const parseXMLData = (xmlData) => {
 async function getVCBRate() {
     try {
         const response = await axios.get('https://portal.vietcombank.com.vn/Usercontrols/TVPortal.TyGia/pXML.aspx');
-        const result = await xml2js.parseStringPromise(response.data);
+        const xmlData = response.data;
         
-        // Kiểm tra dữ liệu trước khi truy cập
+        // Chuyển đổi XML sang JSON
+        const result = await parseXMLData(xmlData);
+        
+        // Kiểm tra và log dữ liệu để debug
+        console.log('VCB API Response:', result);
+        
         if (!result || !result.ExrateList || !result.ExrateList.Exrate) {
             throw new Error('Invalid VCB rate data structure');
         }
 
         // Tìm tỷ giá USD
         const usdRate = result.ExrateList.Exrate.find(rate => 
-            rate.$.CurrencyCode === 'USD'
+            rate.CurrencyCode === 'USD'
         );
 
-        if (!usdRate || !usdRate.$ || !usdRate.$.Transfer) {
+        if (!usdRate) {
             throw new Error('USD rate not found');
         }
 
-        return {
-            buy: parseFloat(usdRate.$.Buy || 0),
-            transfer: parseFloat(usdRate.$.Transfer || 0),
-            sell: parseFloat(usdRate.$.Sell || 0)
+        // Log để kiểm tra giá trị trước khi xử lý
+        console.log('USD Rate from API:', usdRate);
+
+        // Chuyển đổi giá trị string sang số và loại bỏ tất cả dấu phẩy
+        const rates = {
+            buy: parseFloat(usdRate.Buy.replace(/,/g, '')),
+            transfer: parseFloat(usdRate.Transfer.replace(/,/g, '')),
+            sell: parseFloat(usdRate.Sell.replace(/,/g, ''))
         };
+
+        // Log kết quả cuối cùng
+        console.log('Processed rates:', rates);
+
+        return rates;
     } catch (error) {
         console.error('Error fetching VCB rate:', error.message);
-        // Trả về giá trị mặc định khi có lỗi
+        console.error('Error details:', error);
+        if (error.response) {
+            console.error('Response data:', error.response.data);
+        }
         return {
-            buy: 23000,
-            transfer: 23100,
-            sell: 23200
+            buy: 25220,
+            transfer: 25250,
+            sell: 25550
         };
     }
 }
@@ -120,6 +137,18 @@ app.get('/', async (req, res) => {
     } catch (error) {
         res.render('error', { 
             message: 'Không thể tải dữ liệu. Vui lòng thử lại sau.' 
+        });
+    }
+});
+
+app.get('/api/refresh-rate', async (req, res) => {
+    try {
+        const vcbRate = await getVCBRate();
+        res.json(vcbRate);
+    } catch (error) {
+        res.status(500).json({ 
+            error: 'Không thể cập nhật tỷ giá',
+            message: error.message 
         });
     }
 });
